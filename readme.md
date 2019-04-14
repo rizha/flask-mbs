@@ -3,10 +3,20 @@ If you always need more time creating sekeleton for your micro service you can c
 
 
 # What Includes
+
+## Docker
 * [redis:5-alpine](https://hub.docker.com/_/redis)
 * [postgres:11-alpine](https://hub.docker.com/_/postgres)
-* [Flask==1.0.2](http://flask.pocoo.org/) which your app will be inside docker container.
-* and other python libs that include in requirement.txt.
+  
+  
+## Python libs
+* [Flask==1.0.2](http://flask.pocoo.org/)
+* [celery==4.3.0](http://www.celeryproject.org/)
+* [python-json-logger](https://github.com/madzak/python-json-logger)
+* [environs](https://github.com/sloria/environs)
+* [marshmallow](https://marshmallow.readthedocs.io/en/3.0/)
+* [PyJWT](https://github.com/jpadilla/pyjwt)
+* [passlib](https://bitbucket.org/ecollins/passlib/wiki/Home)
 
 # Requirements
 * Docker>=1.13.0
