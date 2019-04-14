@@ -17,6 +17,7 @@ If you always need more time creating sekeleton for your micro service you can c
 * [environs](https://github.com/sloria/environs)
 * [marshmallow](https://marshmallow.readthedocs.io/en/3.0/)
 * [PyJWT](https://github.com/jpadilla/pyjwt)
+* [passlib](https://bitbucket.org/ecollins/passlib/wiki/Home)
 
 # Requirements
 * Docker>=17.12.0
