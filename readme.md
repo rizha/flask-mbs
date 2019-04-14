@@ -10,3 +10,5 @@ If you always need more time creating sekeleton for your micro service you can c
 
 # Requirements
 * Docker>=1.13.0
+  
+Exactly, you only need that one ready on your machine.
