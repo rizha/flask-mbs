@@ -1,0 +1,26 @@
+# A simple framework for building complex web applications.
+FLask==1.0.2
+
+# A lightweight library for converting complex datatypes to and from native Python datatypes.
+marshmallow==2.19.2
+
+# Python client for Redis key-value store
+redis==3.2.1
+
+# Distributed Task Queue.
+celery==4.3.0
+
+# Python-PostgreSQL Database Adapter
+psycopg2-binary==2.8.1
+
+# A python library adding a json log formatter
+python-json-logger==0.1.11
+
+# simplified environment variable parsing
+environs==4.1.0
+
+# JSON Web Token implementation in Python
+PyJWT==1.7.1
+
+# comprehensive password hashing framework supporting over 30 schemes
+passlib==1.7.1
