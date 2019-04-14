@@ -3,10 +3,10 @@ If you always need more time creating sekeleton for your micro service you can c
 
 
 # What Includes
-* redis:5-alpine (docker)
-* postgres:11-alpine (docker)
-* The App is using Flask==1.0.2 also inside container (docker)
-* and other python libs include in requirement.txt
+* [redis:5-alpine](https://hub.docker.com/_/redis)
+* [postgres:11-alpine](https://hub.docker.com/_/postgres)
+* [Flask==1.0.2](http://flask.pocoo.org/) which your app will be inside docker container.
+* and other python libs that include in requirement.txt.
 
 # Requirements
 * Docker>=1.13.0
