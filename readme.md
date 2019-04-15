@@ -11,6 +11,9 @@ If you always need more time creating sekeleton for your micro service you can c
 ## Python libs
 * [Flask==1.0.2](http://flask.pocoo.org/)
 * [celery==4.3.0](http://www.celeryproject.org/)
+* [gunicorn==19.9.0](https://gunicorn.org/)
+* [meinheld==0.6.1](https://pypi.org/project/meinheld/)
+* [peewee==3.9.4](http://docs.peewee-orm.com/en/latest/)
 * [redis==3.2.1](https://github.com/andymccurdy/redis-py)
 * [psycopg2-binary==2.8.1](https://pypi.org/project/psycopg2-binary/)
 * [python-json-logger](https://github.com/madzak/python-json-logger)
@@ -23,3 +26,20 @@ If you always need more time creating sekeleton for your micro service you can c
 * Docker>=17.12.0
   
 Exactly, you only need that one ready on your machine.
+
+
+# Setup
+Attach **Redis** and **Postgres** container
+
+```sh
+$ docker-compose up -d redis postgres
+```
+
+After postgres being attaches to container, Create database todo and todotest
+* todo are default db
+* todotest are testdb
+
+```sh
+$ docker-compose exec postgres psql -U user -c "CREATE DATABASE todo" \
+  -c "CREATE DATABASE todotest"
+```
