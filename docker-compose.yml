@@ -15,10 +15,14 @@ services:
       - ./:/root
     ports:
       - 80:5000
+    depends_on:
+      - redis
+      - postgres
     links:
       - redis
       - postgres
     env_file: .env
+    
 
   redis:
     image: redis:5-alpine
