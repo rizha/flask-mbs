@@ -10,7 +10,7 @@ services:
   app:
     build: .
     image: flask-mbs:latest
-    container_name: flask-ms
+    container_name: flask-mbs
     volumes: 
       - ./:/root
     ports:
