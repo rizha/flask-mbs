@@ -15,4 +15,4 @@ RUN pip install -r requirements.txt
 
 RUN apk del build-deps
 
-CMD gunicorn -w 2 -k meinheld.gmeinheld.MeinheldWorker wsgi:app -b :5000
+CMD gunicorn -w 2 -k meinheld.gmeinheld.MeinheldWorker app:app -b :5000
