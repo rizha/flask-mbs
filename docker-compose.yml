@@ -12,18 +12,23 @@ services:
     image: flask-mbs:latest
     container_name: flask-ms
     volumes: 
-      - .:.
+      - ./:/root
     ports:
       - 80:5000
+    links:
+      - redis
+      - postgres
     env_file: .env
 
   redis:
     image: redis:5-alpine
+    container_name: redis
     volumes:
       - redisdata:/data
   
   postgres:
-    image: 11-alpine
+    image: postgres:11-alpine
+    container_name: potsgres
     volumes:
       - pgdata:/var/lib/postgresql/data
     environment:
