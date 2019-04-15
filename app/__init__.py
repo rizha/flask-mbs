@@ -21,4 +21,5 @@ app = create_app()
 
 @app.route('/status')
 def status():
+    app.logger.info("hi i'm logging from /status route")
     return jsonify(message='ok')
