@@ -13,6 +13,4 @@ ADD ./requirements.txt .
 
 RUN pip install -r requirements.txt
 
-RUN apk del build-deps
-
 CMD gunicorn -w 2 -k meinheld.gmeinheld.MeinheldWorker app:app -b :5000
