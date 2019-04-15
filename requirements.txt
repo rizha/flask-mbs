@@ -33,3 +33,9 @@ meinheld==0.6.1
 
 # a little orm
 peewee==3.9.4
+
+# python code static checker
+pylint==2.3.1
+
+# simple powerful testing with Python
+pytest==4.4.0
