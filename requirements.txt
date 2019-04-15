@@ -24,3 +24,12 @@ PyJWT==1.7.1
 
 # comprehensive password hashing framework supporting over 30 schemes
 passlib==1.7.1
+
+# WSGI HTTP Server for UNIX
+gunicorn==19.9.0
+
+# High performance asynchronous Python WSGI Web Server
+meinheld==0.6.1
+
+# a little orm
+peewee==3.9.4
