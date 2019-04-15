@@ -1,3 +1,12 @@
+from environs import Env
+
+env = Env()
+
+REDIS_HOST = env('REDIS_HOST', 'localhost')
+REDIS_PORT = env.int('REDIS_PORT', 6379)
+REDIS_DB = env.int('REDIS_DB', 0)
+
+
 LOGGING = {
     "version": 1,
     "disable_existing_loggers": False,
