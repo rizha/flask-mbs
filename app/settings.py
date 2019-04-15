@@ -7,6 +7,8 @@ REDIS_PORT = env.int('REDIS_PORT', 6379)
 REDIS_DB = env.int('REDIS_DB', 0)
 
 
+DATABASE  = env('DATABASE', 'postgresql://postgres:password@localhost:5432/app')
+
 LOGGING = {
     "version": 1,
     "disable_existing_loggers": False,
