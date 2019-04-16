@@ -11,7 +11,7 @@ redis==3.2.1
 celery==4.3.0
 
 # Python-PostgreSQL Database Adapter
-psycopg2-binary==2.8.1
+psycopg2-binary==2.8.2
 
 # A python library adding a json log formatter
 python-json-logger==0.1.11
@@ -41,7 +41,7 @@ pylint==2.3.1
 flake8==3.7.7
 
 # simple powerful testing with Python
-pytest==4.4.0
+pytest==4.4.1
 
 # Pytest plugin for measuring coverage.
 pytest-cov==2.6.1
