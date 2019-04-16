@@ -4,6 +4,10 @@ If you always need more time creating sekeleton for your micro service you can c
 
 # What Includes
 
+## Example Resource
+* users [POST, GET, DELETE]
+* todo [POST, GET, DELETE]
+
 ## Docker
 * [redis:5-alpine](https://hub.docker.com/_/redis)
 * [postgres:11-alpine](https://hub.docker.com/_/postgres)
@@ -40,6 +44,11 @@ After postgres being attaches to container, Create database todo and todotest
 * todotest are testdb
 
 ```sh
-$ docker-compose exec postgres psql -U user -c "CREATE DATABASE todo" \
-  -c "CREATE DATABASE todotest"
+$ docker-compose exec postgres psql -U user -c "CREATE DATABASE todo"
+```
+
+# Running Test
+Test are running inside container using pytest.
+```sh
+$ docker-compose run --rm app pytest
 ```
