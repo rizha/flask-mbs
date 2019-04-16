@@ -28,8 +28,8 @@ passlib==1.7.1
 # WSGI HTTP Server for UNIX
 gunicorn==19.9.0
 
-# High performance asynchronous Python WSGI Web Server
-meinheld==0.6.1
+# Coroutine-based network library
+gevent==1.4.0
 
 # a little orm
 peewee==3.9.4
@@ -37,5 +37,11 @@ peewee==3.9.4
 # python code static checker
 pylint==2.3.1
 
+# the modular source code checker: pep8, pyflakes and co
+flake8==3.7.7
+
 # simple powerful testing with Python
 pytest==4.4.0
+
+# A tool that automatically formats Python code to conform to the PEP 8 style guide
+autopep8==1.4.4
