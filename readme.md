@@ -1,6 +1,10 @@
 # Flask Micro Base Service
 If you always waste your time creating sekeleton for your micro service projects you can clone this repo and use it the way you want, modify, change, improve, anything that suit your needs. mosts are container base so you don't need to install directly to your machine. eg. postgres or redis.
 
+# Requirements
+* Docker>=17.12.0
+  
+Exactly, you only need that one ready on your machine.
 
 # What Includes
 
@@ -47,12 +51,6 @@ example send payload
 * [pytest==4.4.0](https://docs.pytest.org/en/latest/)
 * [flake8==3.7.7](http://flake8.pycqa.org/en/latest/)
 * [autopep8==1.4.4](https://pypi.org/project/autopep8/)
-
-# Requirements
-* Docker>=17.12.0
-  
-Exactly, you only need that one ready on your machine.
-
 
 # Setup
 Attach **Redis** and **Postgres** container
