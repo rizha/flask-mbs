@@ -6,6 +6,7 @@ from flask import Flask, jsonify
 from flask.cli import with_appcontext
 from werkzeug.contrib.cache import RedisCache
 from playhouse.flask_utils import FlaskDB
+from celery import Celery
 
 from app import settings
 
@@ -57,3 +58,23 @@ def init_db():
     from app.users.models import User
     with db.database:
         db.database.create_tables([User, ])
+
+
+def make_celery(app):
+    celery = Celery(
+        app.import_name,
+        backend=app.config['CELERY_RESULT_BACKEND'],
+        broker=app.config['CELERY_BROKER_URL'],
+        CELERY_ALWAYS_EAGER=True
+    )
+    celery.conf.update(app.config)
+    celery.autodiscover_tasks([apps[0]
+                               for apps in app.config['APPS']], force=True)
+
+    class ContextTask(celery.Task):
+        def __call__(self, *args, **kwargs):
+            with app.app_context():
+                return self.run(*args, **kwargs)
+
+    celery.Task = ContextTask
+    return celery

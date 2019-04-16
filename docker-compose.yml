@@ -14,7 +14,7 @@ services:
     volumes: 
       - ./:/root
     ports:
-      - 80:5000
+      - 5000:5000
     links:
       - redis
       - postgres
@@ -30,7 +30,7 @@ services:
       - redis
       - postgres
     env_file: .env
-    command: celery -A app.celery.celery_app worker
+    command: celery -A app.wsgi.celery worker -l info
     
 
   redis:

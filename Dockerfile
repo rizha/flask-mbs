@@ -13,4 +13,4 @@ ADD ./requirements.txt .
 
 RUN pip install -r requirements.txt
 
-CMD gunicorn -w 1 -k gevent app -b :5000
+CMD gunicorn -w 1 -k gevent app.wsgi -b :5000
