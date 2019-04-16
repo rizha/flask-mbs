@@ -36,6 +36,7 @@ def users_resource():
         users = []
         for user in User.select():
             users.append(dict(
+                id=user.id,
                 username=user.username,
                 password=user.password
             ))
