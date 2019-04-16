@@ -1,6 +1,9 @@
 language: python
-python:
-  - "3.7"
-install:
-  - pip install -r requirements.txt
-script: pytest --cov app
+
+services:
+  - docker
+
+before_install:
+  - docker-compose build app
+
+script: docker-compose run --rm app pytest --cov
