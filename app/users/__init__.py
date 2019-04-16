@@ -1,25 +1,24 @@
 from flask import Blueprint, request, jsonify
 from marshmallow import Schema, fields, ValidationError
 from passlib.hash import pbkdf2_sha512
-from werkzeug.exceptions import UnprocessableEntity
-import peewee 
+import peewee
 
 
+from .models import User
 
 users = Blueprint('users', __name__)
 
 
-class  UserSchema(Schema):
+class UserSchema(Schema):
     username = fields.Str(required=True, allow_none=False)
     password = fields.Function(
-            deserialize=lambda obj: pbkdf2_sha512.hash(obj),
-            required=True,
-        )
+        deserialize=lambda obj: pbkdf2_sha512.hash(obj),
+        required=True,
+    )
 
 
 @users.route('/users', methods=['POST', 'GET'])
 def users_resource():
-    from .models import User
 
     if request.method == 'POST':
         try:
@@ -35,7 +34,3 @@ def users_resource():
                 return jsonify(messages='Username already exists'), 409
 
         return jsonify(user), 201
-
-
-
-__all__ = ('users',)
