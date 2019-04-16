@@ -17,5 +17,4 @@ before_install:
 
 script: docker-compose run --rm app pytest --cov
 
-after_succces:
-  - docker-compose run --rm -e COVERALLS_REPO_TOKEN=${COVERALLS_REPO_TOKEN} app sh -c "apk add git && coveralls"
+after_succces: docker-compose run --rm -e COVERALLS_REPO_TOKEN=${COVERALLS_REPO_TOKEN} app sh -c "apk add git && coveralls"
