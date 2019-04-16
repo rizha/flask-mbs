@@ -6,6 +6,10 @@ volumes:
   redisdata:
     name: redisdata
 
+networks:
+  flask-mbs:
+    name: flask-mbs
+
 services:
   app:
     build: .
@@ -15,9 +19,8 @@ services:
       - ./:/root
     ports:
       - 5000:5000
-    links:
-      - redis
-      - postgres
+    networks:
+      - flask-mbs
     env_file: .env
     
   celery:
@@ -26,25 +29,26 @@ services:
     container_name: celery
     volumes:
       - ./:/root
-    links:
-      - redis
-      - postgres
+    networks:
+      - flask-mbs
     env_file: .env
     command: celery -A app.wsgi.celery worker -l info
-    
 
   redis:
     image: redis:5-alpine
     container_name: redis
+    networks:
+      - flask-mbs
     volumes:
       - redisdata:/data
   
   postgres:
     image: postgres:11-alpine
     container_name: potsgres
+    networks:
+      - flask-mbs
     volumes:
       - pgdata:/var/lib/postgresql/data
     environment:
       - POSTGRES_USER=user
       - POSTGRES_PASSWORD=secret
-
