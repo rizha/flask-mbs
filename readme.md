@@ -41,7 +41,6 @@ $ docker-compose up -d redis postgres
 
 After postgres being attaches to container, Create database todo and todotest
 * todo are default db
-* todotest are testdb
 
 ```sh
 $ docker-compose exec postgres psql -U user -c "CREATE DATABASE todo"
@@ -49,7 +48,7 @@ $ docker-compose up -d app
 ```
 
 # Running Test
-Test are running inside container using pytest.
+Test are running inside container using pytest, using sqlite db.
 ```sh
 $ docker-compose run --rm app pytest
 ```
