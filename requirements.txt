@@ -48,3 +48,6 @@ pytest-cov==2.6.1
 
 # A tool that automatically formats Python code to conform to the PEP 8 style guide
 autopep8==1.4.4
+
+# Show coverage stats online via coveralls.io
+coveralls==1.7.0
