@@ -1,9 +1,23 @@
+import pytest
 
 
-def test_create(client):
+
+@pytest.mark.parametrize('test_input,expected',
+    [
+        [('user', 'password'), (201, 'user')],
+        [('user', 'password'), (409, 'already exists')],
+        [(None, None), (422, 'Field may not be null')]
+    ]
+)
+def test_create(client, app, test_input, expected):
+    username, password = test_input
+    status_code, resp_message = expected
+    
     rv = client.post('/users', json=dict(
-        username='user',
-        password='password'
+        username=username,
+        password=password
     ))
 
-    assert rv.status_code is 201
+    assert  status_code == rv.status_code
+    assert resp_message.encode() in rv.data
+    
