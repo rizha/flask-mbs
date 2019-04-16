@@ -1,6 +1,9 @@
-[![Requirements Status](https://requires.io/github/rizha/flask-mbs/requirements.svg?branch=master)](https://requires.io/github/rizha/flask-mbs/requirements/?branch=master)
-
 # Flask Micro Base Service
+[![Requirements Status](https://requires.io/github/rizha/flask-mbs/requirements.svg?branch=master)](https://requires.io/github/rizha/flask-mbs/requirements/?branch=master)
+[![Build Status](https://travis-ci.org/rizha/flask-mbs.svg?branch=master)](https://travis-ci.org/rizha/flask-mbs)
+[![Coverage Status](https://coveralls.io/repos/github/rizha/flask-mbs/badge.svg)](https://coveralls.io/github/rizha/flask-mbs)
+
+
 If you always waste your time creating sekeleton for your micro service projects you can clone this repo and use it the way you want, modify, change, improve, anything that suit your needs. mosts are container base so you don't need to install directly to your machine. eg. postgres or redis.
 
 # Requirements
