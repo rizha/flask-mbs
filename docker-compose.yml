@@ -15,13 +15,22 @@ services:
       - ./:/root
     ports:
       - 80:5000
-    depends_on:
-      - redis
-      - postgres
     links:
       - redis
       - postgres
     env_file: .env
+    
+  celery:
+    build: .
+    image: flask-mbs:latest
+    container_name: celery
+    volumes:
+      - ./:/root
+    links:
+      - redis
+      - postgres
+    env_file: .env
+    command: celery -A app.celery.celery_app worker
     
 
   redis:
