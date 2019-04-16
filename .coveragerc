@@ -1,0 +1,8 @@
+[run]
+source =
+  app/
+
+[report]
+show_missing = True
+omit =
+  app/wsgi.py
