@@ -72,7 +72,7 @@ $ docker-compose run --rm app flask shell
 ```
 
 # Running Test
-Test are running inside container using pytest, using sqlite db.
+Test are running inside container using pytest, using sqlite db. it doesn't need container for celery and postgres running.
 ```sh
 $ docker-compose run --rm app pytest
 ```
