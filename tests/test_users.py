@@ -21,3 +21,9 @@ def test_create(client, app, test_input, expected):
     assert  status_code == rv.status_code
     assert resp_message.encode() in rv.data
     
+
+
+def test_tasks_users(app):
+    from app.users.tasks import total_users
+    a = total_users.delay()
+    assert a.get() is 0

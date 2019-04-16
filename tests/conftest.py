@@ -11,7 +11,8 @@ def app():
     db_fd, db_path = tempfile.mkstemp()
     app = create_app(config_test=dict(
         TESTING=True,
-        DATABASE=db_path
+        DATABASE=f'sqlite:///{db_path}',
+        CELERY_ALWAYS_EAGER=True
     ))
 
     with app.app_context():
