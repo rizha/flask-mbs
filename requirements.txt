@@ -43,5 +43,8 @@ flake8==3.7.7
 # simple powerful testing with Python
 pytest==4.4.0
 
+# Pytest plugin for measuring coverage.
+pytest-cov==2.6.1
+
 # A tool that automatically formats Python code to conform to the PEP 8 style guide
 autopep8==1.4.4
