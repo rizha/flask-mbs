@@ -11,7 +11,7 @@ def app():
     db_fd, db_path = tempfile.mkstemp()
     app = create_app(config_test=dict(
         TESTING=True,
-        DATABASE=f'sqlite:///{db_path}'
+        DATABASE=db_path
     ))
 
     with app.app_context():
@@ -21,7 +21,6 @@ def app():
 
     os.close(db_fd)
     os.unlink(db_path)
-
 
 @pytest.fixture
 def client(app):

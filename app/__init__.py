@@ -2,8 +2,8 @@
 import logging.config
 
 from flask import Flask, jsonify, current_app
-from playhouse.flask_utils import FlaskDB
 from werkzeug.contrib.cache import RedisCache
+from peewee import PostgresqlDatabase, SqliteDatabase
 
 from app import settings
 
@@ -15,8 +15,10 @@ def create_app(config_test=None):
     
     if config_test:
         app.config.update(config_test)
+        db = SqliteDatabase(app.config['DATABASE'])
+    else:
+        db = PostgresqlDatabase(app.config['DATABASE'])
     
-    db = FlaskDB(app)
     app.db = db
 
     app.cache = RedisCache(host=settings.REDIS_HOST,
@@ -30,6 +32,14 @@ def create_app(config_test=None):
     def make_shell_context():
         return dict(app=app, db=db)
 
+    @app.before_request
+    def _open_database():
+        app.db.connect(reuse_if_open=True)
+    
+    @app.teardown_request
+    def _close_database(cx):
+        app.db.close()
+
 
     @app.route('/status')
     def status():
@@ -42,4 +52,4 @@ def create_app(config_test=None):
 def init_db():
     from app.users.models import User
     with current_app.app_context():
-        current_app.db.database.create_tables([User,])
+        current_app.db.create_tables([User,])
