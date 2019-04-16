@@ -49,7 +49,21 @@ After postgres being attaches to container, Create database todo and todotest
 $ docker-compose exec postgres psql -U user -c "CREATE DATABASE todo"
 $ docker-compose build app
 $ docker-compose run --rm app flask init_db
-$ docker-compose up -d app
+$ docker-compose up -d app celery
+```
+
+
+# Running celery tasks
+Make sure your celery container already up and running, there's just little example tasks you can run in flask shell
+```sh
+$ docker-compose run --rm app flask shell
+```
+
+```python
+>>> from app.users.tasks import total_users
+>>> total_user = total_users.delay()
+>>> total_user.get()
+0
 ```
 
 # Running Test
