@@ -5,8 +5,27 @@ If you always waste your time creating sekeleton for your micro service projects
 # What Includes
 
 ## Example Resource
-* /users [POST, GET, DELETE]
-* /todo [POST, GET, DELETE]
+Bellow are available example resources you can used when application are running.
+
+### GET /users
+example response payload
+```json
+[{
+	"id": "uuid",
+	"username": "user",
+	"password": "hash_password"
+}]
+```
+### POST /users
+example send payload
+```json
+{
+	"username": "user",
+	"password": "pass"
+}
+```
+
+
 
 ## Docker
 * [redis:5-alpine](https://hub.docker.com/_/redis)
