@@ -42,15 +42,20 @@ Attach **Redis** and **Postgres** container
 $ docker-compose up -d redis postgres
 ```
 
-After postgres being attaches to container, Create database todo and todotest
-* todo are default db
+After postgres being attaches to container, Create database **todo** (default database) 
 
 ```sh
 $ docker-compose exec postgres psql -U user -c "CREATE DATABASE todo"
+```
+
+Build and running your app and celery container
+```sh
 $ docker-compose build app
 $ docker-compose run --rm app flask init_db
 $ docker-compose up -d app celery
 ```
+
+Go to http://localhost:5000/status to make sure app container running
 
 
 # Running celery tasks
