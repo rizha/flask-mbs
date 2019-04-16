@@ -10,7 +10,6 @@ REDIS_HOST = env('REDIS_HOST', 'localhost')
 REDIS_PORT = env.int('REDIS_PORT', 6379)
 REDIS_DB = env.int('REDIS_DB', 0)
 
-
 DATABASE = env('DATABASE', 'postgresql://postgres:password@localhost:5432/app')
 
 CELERY_RESULT_BACKEND = env(
@@ -18,6 +17,8 @@ CELERY_RESULT_BACKEND = env(
     'redis://localhost:6379/0')
 CELERY_BROKER_URL = env('CELERY_BROKER_URL', 'redis://localhost:6379/0')
 
+
+JSON_SORT_KEYS = False
 
 LOGGING = {
     "version": 1,
