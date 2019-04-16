@@ -23,7 +23,7 @@ def test_create(client, app, test_input, expected):
     
 
 
-def test_tasks_users(app):
+def test_tasks_users(client):
     from app.users.tasks import total_users
     a = total_users.delay()
-    assert a.get() is 0
+    assert a.get() is not None

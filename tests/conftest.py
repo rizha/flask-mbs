@@ -3,7 +3,8 @@ import tempfile
 
 import pytest
 
-from app import create_app, init_db
+from app import create_app, init_db, make_celery
+
 
 @pytest.fixture
 def app():
@@ -14,6 +15,8 @@ def app():
         DATABASE=f'sqlite:///{db_path}',
         CELERY_ALWAYS_EAGER=True
     ))
+
+    celery = make_celery(app)
 
     with app.app_context():
         init_db()
