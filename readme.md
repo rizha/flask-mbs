@@ -45,6 +45,7 @@ After postgres being attaches to container, Create database todo and todotest
 
 ```sh
 $ docker-compose exec postgres psql -U user -c "CREATE DATABASE todo"
+$ docker-compose up -d app
 ```
 
 # Running Test
