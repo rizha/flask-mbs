@@ -5,8 +5,8 @@ If you always waste your time creating sekeleton for your micro service projects
 # What Includes
 
 ## Example Resource
-* users [POST, GET, DELETE]
-* todo [POST, GET, DELETE]
+* /users [POST, GET, DELETE]
+* /todo [POST, GET, DELETE]
 
 ## Docker
 * [redis:5-alpine](https://hub.docker.com/_/redis)
@@ -16,7 +16,7 @@ If you always waste your time creating sekeleton for your micro service projects
 * [Flask==1.0.2](http://flask.pocoo.org/)
 * [celery==4.3.0](http://www.celeryproject.org/)
 * [gunicorn==19.9.0](https://gunicorn.org/)
-* [meinheld==0.6.1](https://pypi.org/project/meinheld/)
+* [gevent==1.4.0](http://www.gevent.org/)
 * [peewee==3.9.4](http://docs.peewee-orm.com/en/latest/)
 * [redis==3.2.1](https://github.com/andymccurdy/redis-py)
 * [psycopg2-binary==2.8.1](https://pypi.org/project/psycopg2-binary/)
@@ -25,6 +25,9 @@ If you always waste your time creating sekeleton for your micro service projects
 * [marshmallow](https://marshmallow.readthedocs.io/en/3.0/)
 * [PyJWT](https://github.com/jpadilla/pyjwt)
 * [passlib](https://bitbucket.org/ecollins/passlib/wiki/Home)
+* [pytest==4.4.0](https://docs.pytest.org/en/latest/)
+* [flake8==3.7.7](http://flake8.pycqa.org/en/latest/)
+* [autopep8==1.4.4](https://pypi.org/project/autopep8/)
 
 # Requirements
 * Docker>=17.12.0
@@ -44,6 +47,8 @@ After postgres being attaches to container, Create database todo and todotest
 
 ```sh
 $ docker-compose exec postgres psql -U user -c "CREATE DATABASE todo"
+$ docker-compose build app
+$ docker-compose run --rm app flask init_db
 $ docker-compose up -d app
 ```
 
