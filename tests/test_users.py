@@ -31,3 +31,23 @@ def test_tasks_users(client):
     from app.users.tasks import total_users
     a = total_users.delay()
     assert a.get() is not None
+
+
+@pytest.mark.parametrize(
+    'test_input,expected',
+    [
+        [('user', 'password'), (201, 'token')],
+        [('wrong_user', 'wrong_pass'), (401, 'Invalid')],
+        [(None, None), (422, 'Field may not be null')]
+    ]
+)
+def test_login(client, test_input, expected):
+    username, password = test_input
+    status_code, resp_message = expected
+    rv = client.post('/users/login', json=dict(
+        username=username,
+        password=password
+    ))
+    
+    assert status_code == rv.status_code
+    assert resp_message.encode() in rv.data
