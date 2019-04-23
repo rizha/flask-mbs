@@ -17,6 +17,8 @@ Exactly, you only need that one ready on your machine.
 Bellow are available example resources you can used when application are running.
 
 ### GET /users
+Get all users
+
 example response payload
 ```json
 [{
@@ -26,6 +28,19 @@ example response payload
 }]
 ```
 ### POST /users
+Create User
+
+example send payload
+```json
+{
+	"username": "user",
+	"password": "pass"
+}
+```
+
+### POST /users/login
+Get token for every todo resource request.
+
 example send payload
 ```json
 {
