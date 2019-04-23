@@ -1,8 +1,13 @@
-from app import db
+import uuid
+from datetime import timedelta, datetime
 
 import peewee
-import uuid
+import jwt
 from passlib.hash import pbkdf2_sha512
+
+from app import settings
+from app import db
+
 
 
 class User(db.Model):
@@ -12,3 +17,12 @@ class User(db.Model):
 
     def password_hash(self, password):
         return pbkdf2_sha512.hash(password)
+    
+    def verify_password(self, password):
+        return pbkdf2_sha512.verify(password, self.password)
+
+    @property
+    def token(self):
+        expiry = datetime.now() + timedelta(seconds=settings.TOKEN_EXPIRY)
+        return jwt.encode({'exp': expiry},
+            settings.SECRET_KEY, algorithm='HS256').decode()
