@@ -19,6 +19,8 @@ CELERY_BROKER_URL = env('CELERY_BROKER_URL', 'redis://localhost:6379/0')
 
 
 JSON_SORT_KEYS = False
+TOKEN_EXPIRY = env.int('TOKEN_EXPIRY', 3600)
+SECRET_KEY = env('SECRET_KEY', 'ChangeThisSecretKey')
 
 LOGGING = {
     "version": 1,
