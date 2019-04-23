@@ -1,4 +1,4 @@
-from flask import Blueprint, request, jsonify
+from flask import Blueprint, request, jsonify, current_app
 from marshmallow import Schema, fields, ValidationError
 import peewee
 
@@ -41,3 +41,23 @@ def users_resource():
                 password=user.password
             ))
         return jsonify(users)
+
+
+@users.route('/users/login', methods=['POST',])
+def login():
+    from werkzeug.exceptions import Unauthorized
+    try:
+        payload = request.get_json() or {}
+        auth_data, _ = UserSchema(strict=True).load(payload)
+        user = User.get(username=auth_data['username'])
+
+        if not user.verify_password(auth_data['password']):
+            raise Unauthorized
+
+    except ValidationError as e:
+        return jsonify(e.messages), 422
+
+    except (User.DoesNotExist, Unauthorized):
+        return jsonify(message='Invalid Username or Password'), 401
+
+    return jsonify(token=user.token), 201
