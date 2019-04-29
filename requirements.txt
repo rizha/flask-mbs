@@ -32,7 +32,7 @@ gunicorn==19.9.0
 gevent==1.4.0
 
 # a little orm
-peewee==3.9.4
+peewee==3.9.5
 
 # python code static checker
 pylint==2.3.1
